@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TodoListController;
 use App\Http\Controllers\ListItemController;
 use App\Http\Controllers\AuctionController;
+use App\Http\Controllers\AuctioneerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,8 +33,14 @@ Route::put('auctions/{auction}', [AuctionController::class, 'update'])->name('au
 Route::delete('auctions/{auction}', [AuctionController::class, 'destroy'])->name('auctions.destroy');
 
 
-Route::post('saveItem', [TodoListController::class, 'saveItem'])->name('saveItem');
+Route::get('auctioneers', [AuctioneerController::class, 'index'])->name('auctioneers.index');
+Route::get('auctioneers/create', [AuctioneerController::class, 'create'])->name('auctioneers.create');
+Route::post('auctioneers', [AuctioneerController::class, 'store'])->name('auctioneers.store');
+Route::get('auctioneers/{auctioneer}/edit', [AuctioneerController::class, 'edit'])->name('auctioneers.edit');
+Route::put('auctioneers/{auctioneer}', [AuctioneerController::class, 'update'])->name('auctioneers.update');
+Route::delete('auctioneers/{auctioneer}', [AuctioneerController::class, 'destroy'])->name('auctioneers.destroy');
 
+Route::post('saveItem', [TodoListController::class, 'saveItem'])->name('saveItem');
 Route::resource('listItem', ListItemController::class);
 Route::get('/listItems', [ListItemController::class, 'index'])->name('listItems.index');
 Route::get('/listItems/create', [ListItemController::class, 'create'])->name('listItems.create');
