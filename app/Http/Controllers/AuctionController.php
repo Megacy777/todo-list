@@ -12,6 +12,8 @@ class AuctionController extends Controller
         // $auctions = Auction::all();
         $auctions = Auction::paginate(15);
 
+        // dd($auctions->toArray());
+
         // Get all active auctions
         $activeAuctions = Auction::active()->get();
 
@@ -48,7 +50,8 @@ class AuctionController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $this->authorizeForUser('view', $id);
+        return redirect()->route('auctions.index');
     }
 
     /**

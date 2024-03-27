@@ -64,3 +64,20 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+
+ <body class="antialiased">
+     <div
+         class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
+         <div style = "color: white;">
+             <h1><b>todo list</b></h1><br>
+             <form method="post" action="{{ route('saveItem') }}" accept-charset="UTF-8">
+              {{-- for security reasons (Cross-Site Request Forgery) token --}}
+             {{ csrf_field() }}
+                 <label for "list_items"> new todo item </label> <br>
+                 <input type = "text" name = "list_items" style = "color: black;">
+                 <button type="button" class="btn btn-danger">save item</button>
+             </form>
+         </div>
+ </body>
+</html>

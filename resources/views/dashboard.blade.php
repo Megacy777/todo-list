@@ -13,5 +13,14 @@
                 </div>
             </div>
         </div>
+
+    <div>
+        <form action="POST" method="post">
+            @csrf_clean
+
+
+        </form>
+    </div>
+        <form action="" method="post"></form>
     </div>
 </x-app-layout>

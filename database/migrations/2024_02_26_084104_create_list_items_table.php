@@ -13,9 +13,10 @@ return new class extends Migration
     {
         Schema::create('list_items', function (Blueprint $table) {
             $table->id();
+            //$table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
             $table->string('name');
             $table->integer('is_complete');
-            $table->timestamps();
+            $table->timestamps();       //created_at 	updated_at 	
         });
     }
 
